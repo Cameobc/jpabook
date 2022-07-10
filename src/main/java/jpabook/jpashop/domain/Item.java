@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class Item {
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn
+public abstract class Item extends BaseEntity{
 
     @Id @GeneratedValue
     @Column(name = "ITEM_ID")
@@ -15,7 +17,7 @@ public class Item {
 
     private int price;
 
-    private int stackQunaity;
+    private int stackQunatity;
 
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
@@ -44,11 +46,11 @@ public class Item {
         this.price = price;
     }
 
-    public int getStackQunaity() {
-        return stackQunaity;
+    public int getStackQunatity() {
+        return stackQunatity;
     }
 
-    public void setStackQunaity(int stackQunaity) {
-        this.stackQunaity = stackQunaity;
+    public void setStackQunatity(int stackQunaity) {
+        this.stackQunatity = stackQunaity;
     }
 }

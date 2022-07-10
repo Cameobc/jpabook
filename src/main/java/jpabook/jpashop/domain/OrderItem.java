@@ -5,7 +5,7 @@ import org.jboss.jandex.Main;
 import javax.persistence.*;
 
 @Entity
-public class OrderItem {
+public class OrderItem extends BaseEntity{
 
     @Id
     @GeneratedValue
